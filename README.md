@@ -45,9 +45,11 @@ The pipeline fetches live flight data, writes it to Kafka, persists it in Iceber
 ---
 
 ## :globe_with_meridians: API Endpoint
-This project fetches real-time flight data from the OpenSky Network API.   
-REST API Endpoint:  
-https://opensky-network.org/api/states/all  
+This project fetches real-time flight data from the OpenSky Network API.
+
+#### REST API Endpoint:  
+https://opensky-network.org/api/states/all
+
 This API provides live state vectors for all aircraft within OpenSky’s coverage.
 For details on API parameters and usage, refer to their [API Documentation](https://openskynetwork.github.io/opensky-api/index.html).
 

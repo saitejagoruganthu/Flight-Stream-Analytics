@@ -1,37 +1,6 @@
 # ARCHITECTURE
 
-+------------------+  
-                | OpenSky API      |  
-                | (Flight Data)    |  
-                +--------+---------+  
-                         |  
-                         |  (Python Script)  
-                         v  
-                    +----+----+  
-                    |  Kafka  |  <-- Ingest real-time flight data  
-                    +----+----+  
-                         |  
-                         v  
-                    +----+----+  
-                    | Processor| <-- Python script consumes Kafka, writes to Iceberg  
-                    +----+----+  
-                         |  
-                         v  
-                 +---------------+  
-                 | Apache Iceberg|  
-                 | (MinIO) |  
-                 +-------+-------+  
-                         |  
-                         v  
-                    +----+----+  
-                    |  Presto  | <-- Query Iceberg tables  
-                    +----+----+  
-                         |  
-                         v  
-                    +--------+  
-                    | Superset |  <-- Dashboards & visualizations  
-                    +--------+
- +------------------+ 
+![architecture.png](./images/architecture.png)
 
 
 # TOOLS
