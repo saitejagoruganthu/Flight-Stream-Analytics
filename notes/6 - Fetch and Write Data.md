@@ -212,7 +212,7 @@ eval $(minikube docker-env)
 docker build -t opensky-producer:latest -f Dockerfile.producer .
 ```
 
-![Pasted image 20250805185408.png](./images/Pasted image 20250805185408.png)
+![Pasted image 20250805185408.png](./images/Pasted%20image%2020250805185408.png)
 
 An image named `opensky-producer:latest` has been created in minikube docker environment.
 
@@ -222,7 +222,7 @@ Repeat the same for consumer.
 docker build -t presto-consumer:latest -f Dockerfile.consumer .
 ```
 
-![Pasted image 20250805185641.png](./images/Pasted image 20250805185641.png)
+![Pasted image 20250805185641.png](./images/Pasted%20image%2020250805185641.png)
 An image named `presto-consumer:latest` has been created in minikube docker environment.
 
 Verify that the images are created
@@ -231,7 +231,7 @@ Verify that the images are created
 docker image ls
 ```
 
-![Pasted image 20250806163623.png](./images/Pasted image 20250806163623.png)
+![Pasted image 20250806163623.png](./images/Pasted%20image%2020250806163623.png)
 
 Now that we have docker images, lets deploy in the minikube cluster using kubernetes objects (opensky-producer.yaml, presto-consumer.yaml).
 
@@ -245,7 +245,7 @@ kubectl create ns scripts
 kubectl apply -f opensky-producer.yaml -f presto-consumer.yaml -n scripts
 ```
 
-![Pasted image 20250806235611.png](./images/Pasted image 20250806235611.png)
+![Pasted image 20250806235611.png](./images/Pasted%20image%2020250806235611.png)
 
 Verify the Producer Job and Consumer pod is running
 
@@ -253,7 +253,7 @@ Verify the Producer Job and Consumer pod is running
 kubectl get all -n scripts
 ```
 
-![Pasted image 20250809161512.png](./images/Pasted image 20250809161512.png)
+![Pasted image 20250809161512.png](./images/Pasted%20image%2020250809161512.png)
 
 As you can see, the producer job status is Completed, which means the API has been called 10 times and 3000 messages have been sent to the kafka topic by the kafka producer.
 
@@ -263,7 +263,7 @@ Verify the producer logs to check if the messages have been sent
 kubectl logs opensky-producer-5ddb4d775b-q2625 -n scripts
 ```
 
-![Pasted image 20250807002135.png](./images/Pasted image 20250807002135.png)
+![Pasted image 20250807002135.png](./images/Pasted%20image%2020250807002135.png)
 
 Similarly verify the consumer logs to check if the messages have been inserted by presto
 
@@ -271,7 +271,7 @@ Similarly verify the consumer logs to check if the messages have been inserted b
 kubectl logs presto-consumer-8fb654b6d-krrj4 -n scripts
 ```
 
-![Pasted image 20250807002332.png](./images/Pasted image 20250807002332.png)
+![Pasted image 20250807002332.png](./images/Pasted%20image%2020250807002332.png)
 
 Check the queries running live by accessing the presto UI.
 
@@ -284,27 +284,27 @@ kubectl port-forward svc/presto 8080:8080 -n presto
 
 Open http://localhost:8080 in your browser to access the presto UI.
 
-![Pasted image 20250807001336.png](./images/Pasted image 20250807001336.png)
+![Pasted image 20250807001336.png](./images/Pasted%20image%2020250807001336.png)
 
 As shown, the insert statements are running.
 
 Sometimes, the `localhost:8080` loses connection to pod since the pod crashes due to heavy load. But, thanks to kubernetes, it automatically restarts and starts running the queries again in backend. To view them in the presto UI, start the port-forwarding command again. Open the http://localhost:8080 to continue looking at live query execution.
-![Pasted image 20250807003031.png](./images/Pasted image 20250807003031.png)
+![Pasted image 20250807003031.png](./images/Pasted%20image%2020250807003031.png)
 
 After reconnecting,
 
-![Pasted image 20250807003115.png](./images/Pasted image 20250807003115.png)
+![Pasted image 20250807003115.png](./images/Pasted%20image%2020250807003115.png)
 
 Lets now look at storage layer (`minio`) to see the inserted data.
 
-![Pasted image 20250807003250.png](./images/Pasted image 20250807003250.png)
+![Pasted image 20250807003250.png](./images/Pasted%20image%2020250807003250.png)
 As shown, the `data` folder appears after insertions take place. The data folder contains the parquet files that have been written.
 
-![Pasted image 20250807003549.png](./images/Pasted image 20250807003549.png)
+![Pasted image 20250807003549.png](./images/Pasted%20image%2020250807003549.png)
 
 Also, take a look at the `metadata` folder that stores the metadata related to schema, tables, etc.
 
-![Pasted image 20250807004823.png](./images/Pasted image 20250807004823.png)
+![Pasted image 20250807004823.png](./images/Pasted%20image%2020250807004823.png)
 
 Since we are not using enough resources, the cluster might get stuck. Simply restart the consumer pod.
 

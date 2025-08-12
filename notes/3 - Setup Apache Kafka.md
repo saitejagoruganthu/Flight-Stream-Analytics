@@ -12,7 +12,7 @@ Update the helm repo to fetch latest version
 helm repo update
 ```
 
-![Pasted image 20250805011305.png](./images/Pasted image 20250805011305.png)
+![Pasted image 20250805011305.png](./images/Pasted%20image%2020250805011305.png)
 
 Create `kafka` namespace
 
@@ -26,7 +26,7 @@ Install Helm repo for kafka
 helm install kafka bitnami/kafka --namespace kafka --create-namespace -f kafka-values.yaml
 ```
 
-![Pasted image 20250805231016.png](./images/Pasted image 20250805231016.png)
+![Pasted image 20250805231016.png](./images/Pasted%20image%2020250805231016.png)
 
 `kafka-values.yaml` file content is below
 
@@ -85,4 +85,4 @@ Verify the logs of the pod, it should say `Kafka Server Started`
 kubectl logs kafka-controller-0 -n kafka
 ```
 
-![Pasted image 20250805231231.png](./images/Pasted image 20250805231231.png)
+![Pasted image 20250805231231.png](./images/Pasted%20image%2020250805231231.png)

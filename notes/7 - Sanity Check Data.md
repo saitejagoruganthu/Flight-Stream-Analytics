@@ -28,7 +28,7 @@ Check Total Number of Rows
 SELECT COUNT(*) FROM flight_data;
 ```
 
-![Pasted image 20250810004143.png](./images/Pasted image 20250810004143.png)
+![Pasted image 20250810004143.png](./images/Pasted%20image%2020250810004143.png)
 
 Preview Sample Data
 
@@ -36,7 +36,7 @@ Preview Sample Data
 SELECT * FROM flight_data LIMIT 10;
 ```
 
-![Pasted image 20250810004202.png](./images/Pasted image 20250810004202.png)
+![Pasted image 20250810004202.png](./images/Pasted%20image%2020250810004202.png)
 
 Count Records per Flight
 
@@ -48,7 +48,7 @@ ORDER BY records_per_flight DESC
 LIMIT 10;
 ```
 
-![Pasted image 20250810004222.png](./images/Pasted image 20250810004222.png)
+![Pasted image 20250810004222.png](./images/Pasted%20image%2020250810004222.png)
 
 Calculate Average velocity per Flight
 
@@ -60,7 +60,7 @@ ORDER BY avg_velocity DESC
 LIMIT 10;
 ```
 
-![Pasted image 20250810004600.png](./images/Pasted image 20250810004600.png)
+![Pasted image 20250810004600.png](./images/Pasted%20image%2020250810004600.png)
 
 Unique Origin Countries
 
@@ -68,7 +68,7 @@ Unique Origin Countries
 SELECT DISTINCT origin_country FROM flight_data;
 ```
 
-![Pasted image 20250810010213.png](./images/Pasted image 20250810010213.png)
+![Pasted image 20250810010213.png](./images/Pasted%20image%2020250810010213.png)
 
 Count Number of Flights from Origin Country
 
@@ -80,4 +80,4 @@ ORDER BY number_of_flights DESC
 LIMIT 10;
 ```
 
-![Pasted image 20250810010235.png](./images/Pasted image 20250810010235.png)
+![Pasted image 20250810010235.png](./images/Pasted%20image%2020250810010235.png)

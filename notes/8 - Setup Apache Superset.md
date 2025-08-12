@@ -89,7 +89,7 @@ superset run -p 8088 --with-threads --reload --debugger
 
 If everything worked, you should be able to navigate to `hostname:port` in your browser (e.g. locally by default at `127.0.0.1:8088`) and login using the username and password you created.
 
-![Pasted image 20250810192533.png](./images/Pasted image 20250810192533.png)
+![Pasted image 20250810192533.png](./images/Pasted%20image%2020250810192533.png)
 
 # Connect to Database (Presto)
 
@@ -101,11 +101,11 @@ kubectl port-forward svc/presto 8080:8080 -n presto
 
 Now, select `Connect database`
 
-![Pasted image 20250810192954.png](./images/Pasted image 20250810192954.png)
+![Pasted image 20250810192954.png](./images/Pasted%20image%2020250810192954.png)
 
 Select `Presto`
 
-![Pasted image 20250810193055.png](./images/Pasted image 20250810193055.png)
+![Pasted image 20250810193055.png](./images/Pasted%20image%2020250810193055.png)
 
 Enter credentials
 
@@ -123,6 +123,6 @@ presto://localhost:8080/iceberg/default
 
 Click on `Test Connection` to check the connection. `Connection looks good` message appears at the bottom-right corner.
 
-![Pasted image 20250810193401.png](./images/Pasted image 20250810193401.png)
+![Pasted image 20250810193401.png](./images/Pasted%20image%2020250810193401.png)
 
 Click `Connect`. `Database Connected` message appears.

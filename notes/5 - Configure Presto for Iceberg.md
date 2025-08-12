@@ -37,7 +37,7 @@ Run the below command to upgrade the helm installation of presto by adding new c
 helm upgrade --install presto presto/presto -f values.yaml --namespace presto
 ```
 
-![Pasted image 20250805170326.png](./images/Pasted image 20250805170326.png)
+![Pasted image 20250805170326.png](./images/Pasted%20image%2020250805170326.png)
 
 Verify it is upgraded by going into the coordinator pod and look for `iceberg.properties` under `etc/catalog` directory.
 
@@ -51,7 +51,7 @@ kubectl get all -n presto
 kubectl exec -it presto-coordinator-599f45799f-d9k2v -n presto -- /bin/sh
 ```
 
-![Pasted image 20250806215155.png](./images/Pasted image 20250806215155.png)
+![Pasted image 20250806215155.png](./images/Pasted%20image%2020250806215155.png)
 As shown above, the catalog properties file is updated.
 
 Now, that we have connected presto to minio, lets create a new iceberg table named `flight_data` in the minio bucket path named `warehouse/iceberg-data` that we created previously.
@@ -80,7 +80,7 @@ show catalogs;
 show schemas from iceberg;
 ```
 
-![Pasted image 20250806013913.png](./images/Pasted image 20250806013913.png)
+![Pasted image 20250806013913.png](./images/Pasted%20image%2020250806013913.png)
 
 Now, let's create a new iceberg table named `flight_data` using the `default` schema. Execute the below SQL statement in the presto-cli
 
@@ -100,11 +100,11 @@ location = 's3a://warehouse/iceberg-data/default/flight_data'
 );
 ```
 
-![Pasted image 20250806014508.png](./images/Pasted image 20250806014508.png)
+![Pasted image 20250806014508.png](./images/Pasted%20image%2020250806014508.png)
 
 After table is created, you can visit minio UI to see the reflected table with metadata folder.
 
-![Pasted image 20250806014745.png](./images/Pasted image 20250806014745.png)
+![Pasted image 20250806014745.png](./images/Pasted%20image%2020250806014745.png)
 
 As you can see, it has created a new folder named `default` for the schema. You can verify it by executing below command.
 
@@ -112,4 +112,4 @@ As you can see, it has created a new folder named `default` for the schema. You 
 show schemas from iceberg;
 ```
 
-![Pasted image 20250806220257.png](./images/Pasted image 20250806220257.png)
+![Pasted image 20250806220257.png](./images/Pasted%20image%2020250806220257.png)

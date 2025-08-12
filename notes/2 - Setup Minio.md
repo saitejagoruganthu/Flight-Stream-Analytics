@@ -15,7 +15,7 @@ Update the helm repo to fetch latest version
 helm repo update
 ```
 
-![Pasted image 20250804234705.png](./images/Pasted image 20250804234705.png)
+![Pasted image 20250804234705.png](./images/Pasted%20image%20 20250804234705.png)
 
 Before, deploying minio, let us create a folder inside the minikube VM. This folder is then mounted into the minio container which exports the stored data from inside the container to the outside VM.
 
@@ -31,7 +31,7 @@ Give appropriate permissions for user ID 1000 and group ID 1000 which minio uses
 sudo chown -R 1000:1000 /var/minio-data
 ```
 
-![Pasted image 20250809031044.png](./images/Pasted image 20250809031044.png)
+![Pasted image 20250809031044.png](./images/Pasted%20image%2020250809031044.png)
 
 Let's separate out the deployments into different namespaces. Create a new namespace named `minio`
 
@@ -92,7 +92,7 @@ kubectl get pv
 kubectl get pvc -n minio
 ```
 
-![Pasted image 20250809025815.png](./images/Pasted image 20250809025815.png)
+![Pasted image 20250809025815.png](./images/Pasted%20image%2020250809025815.png)
 
 Install minio
 
@@ -140,7 +140,7 @@ Install minio using the below command.
 helm install minio minio/minio -n minio --set rootUser=minio --set rootPassword=minio123 -f minio-values.yaml
 ```
 
-![Pasted image 20250809013221.png](./images/Pasted image 20250809013221.png)
+![Pasted image 20250809013221.png](./images/Pasted%20image%2020250809013221.png)
 
 Wait for the pods to be up and running.
 
@@ -148,7 +148,7 @@ Wait for the pods to be up and running.
 kubectl get all -n minio
 ```
 
-![Pasted image 20250805010631.png](./images/Pasted image 20250805010631.png)
+![Pasted image 20250805010631.png](./images/Pasted%20image%2020250805010631.png)
 
 Open up the `minio` console in a new terminal and keep it running
 
@@ -156,7 +156,7 @@ Open up the `minio` console in a new terminal and keep it running
 minikube service minio-console --namespace minio
 ```
 
-![Pasted image 20250805011120.png](./images/Pasted image 20250805011120.png)
+![Pasted image 20250805011120.png](./images/Pasted%20image%2020250805011120.png)
 
 Login into Minio (http://localhost:54940 in my case)
 
@@ -170,7 +170,7 @@ Password:
 minio123
 ```
 
-![Pasted image 20250805010744.png](./images/Pasted image 20250805010744.png)
+![Pasted image 20250805010744.png](./images/Pasted%20image%2020250805010744.png)
 
 Create `accesskey` and `secretkey` in minio. These are later used by Presto client to connect to minio. Give meaningful name and description in the below dialog box.
 
@@ -184,23 +184,23 @@ secretKey:
 minioadmin
 ```
 
-![Pasted image 20250809152124.png](./images/Pasted image 20250809152124.png)
+![Pasted image 20250809152124.png](./images/Pasted%20image%2020250809152124.png)
 
 Finally, create a new bucket named `warehouse`.
 
-![Pasted image 20250809014200.png](./images/Pasted image 20250809014200.png)
+![Pasted image 20250809014200.png](./images/Pasted%20image%2020250809014200.png)
 
-![Pasted image 20250806210737.png](./images/Pasted image 20250806210737.png)
+![Pasted image 20250806210737.png](./images/Pasted%20image%2020250806210737.png)
 
 Since we are using `hadoop` catalog type in presto, we need an absolute path to a folder inside the bucket. Therefore, create a new folder named `iceberg-data` for the iceberg catalog.
 
 `Note:` To create a folder in minio UI, first create a new path (iceberg-data) and then upload a temp file since minio does not entertain empty folders.
 
-![Pasted image 20250806011410.png](./images/Pasted image 20250806011410.png)
+![Pasted image 20250806011410.png](./images/Pasted%20image%2020250806011410.png)
 
 After creating upload a dummy file (values.yaml) to sustain the folder structure.
 
-![Pasted image 20250806011556.png](./images/Pasted image 20250806011556.png)
+![Pasted image 20250806011556.png](./images/Pasted%20image%2020250806011556.png)
 
 Let us verify the minikube VM data folder that we created at /var/minio-data to see if the bucket and the corresponding values.yaml that we uploaded have been reflected from inside the container to the VM.
 
@@ -220,7 +220,7 @@ cd /var/minio-data
 ls
 ```
 
-![Pasted image 20250809031925.png](./images/Pasted image 20250809031925.png)
+![Pasted image 20250809031925.png](./images/Pasted%20image%2020250809031925.png)
 As you can see, the warehouse bucket is visible inside the VM. Hence the data is mounted properly.
 
 # Not Required now
@@ -243,4 +243,4 @@ mkdir -p "$HOME/minio-data-copy"
 docker cp "$CID:/var/minio-data" "$HOME/minio-data-copy"
 ```
 
-![Pasted image 20250809201011.png](./images/Pasted image 20250809201011.png)
+![Pasted image 20250809201011.png](./images/Pasted%20image%2020250809201011.png)
