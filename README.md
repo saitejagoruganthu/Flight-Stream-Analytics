@@ -36,4 +36,25 @@ The setup is modular, so you can run it locally in Minikube with persistent stor
 	cd <repo-name>
 ```
 
-2. **Follow the Steps above from 0 to 9**
+2. **Follow the steps in order** starting from Step 1 to Step 9.
+	Each `.md` file contains detailed commands, YAML configurations, and screenshots.
+	
+3. **View Dashboards**
+	Once Superset is up, access it and explore the dashboard for real-time flight analytics.
+
+---
+
+# :bar_chart: Example Visualizations
+### Flight Density Map – Shows high-density regions of flights on a map.
+### Unique Flights Over Time – Line chart of active flights by timestamp.
+### Average Velocity KPI – Real-time KPI of average flight speed.
+### Top Countries by Flight Count – Bar chart of origin countries.
+
+![Pasted image 20250811171120.png](./images/Pasted image 20250811171120.png)
+
+---
+# :bulb: Notes
+All services run inside Minikube except Superset, run locally.
+MinIO uses persistent volumes to store Iceberg table data.
+Presto queries Iceberg tables directly via the MinIO S3 endpoint.
+Superset connects to Presto to visualize aggregated results.
