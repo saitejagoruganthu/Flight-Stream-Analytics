@@ -39,16 +39,20 @@ The pipeline fetches live flight data, writes it to Kafka, persists it in Iceber
 2. **Follow the steps in order** starting from Step 1 to Step 9.
 	Each `.md` file contains detailed commands, YAML configurations, and screenshots.
 	
-3. **View Dashboards**
+3. **View Dashboards:**
 	Once Superset is up, access it and explore the dashboard for real-time flight analytics.
 
 ---
 
 ## :bar_chart: Example Visualizations
-### Flight Density Map – Shows high-density regions of flights on a map.
-### Unique Flights Over Time – Line chart of active flights by timestamp.
-### Average Velocity KPI – Real-time KPI of average flight speed.
-### Top Countries by Flight Count – Bar chart of origin countries.
+#### Flight Density Map
+Shows high-density regions of flights on a map.
+#### Unique Flights Over Time
+Line chart of active flights by timestamp.
+#### Average Velocity KPI
+Real-time KPI of average flight speed.
+#### Top Countries by Flight Count
+Bar chart of origin countries.
 
 ![Pasted image 20250811171120.png](./notes/images/Pasted%20image%2020250811171120.png)
 
