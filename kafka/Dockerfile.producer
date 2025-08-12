@@ -1,0 +1,8 @@
+FROM python:3.10
+
+WORKDIR /app
+COPY opensky_producer.py .
+
+RUN pip install kafka-python requests
+
+CMD ["python", "opensky_producer.py"]

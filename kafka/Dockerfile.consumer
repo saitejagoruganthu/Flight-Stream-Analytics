@@ -1,0 +1,8 @@
+FROM python:3.10
+
+WORKDIR /app
+COPY presto_insert.py .
+
+RUN pip install kafka-python presto-python-client
+
+CMD ["python", "presto_insert.py"]

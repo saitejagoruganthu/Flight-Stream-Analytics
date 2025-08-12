@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: opensky-producer
+  namespace: scripts
+spec:
+  template:
+    spec:
+      containers:
+        - name: opensky-producer
+          image: opensky-producer:latest
+          imagePullPolicy: Never
+          env:
+            - name: KAFKA_BROKER
+              value: kafka.kafka.svc.cluster.local:9092
+      restartPolicy: Never
+  backoffLimit: 0

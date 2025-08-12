@@ -1,0 +1,31 @@
+# --- PersistentVolume (PV) ---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-hostpath-pv
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  hostPath:
+    path: /var/minio-data             # <-- this is inside the Minikube VM (the mount target)
+---
+# --- PersistentVolumeClaim (PVC) ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: minio-data-pvc
+  namespace: minio
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: ""
+  volumeName: minio-hostpath-pv

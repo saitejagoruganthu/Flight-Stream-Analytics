@@ -1,0 +1,31 @@
+mode: standalone
+persistence:
+  enabled: true
+  existingClaim: minio-data-pvc
+  mountPath: /export                 # MinIO writes here in the container
+# Keep tmp on the same filesystem as /export to avoid EXDEV/rename issues
+environment:
+  MINIO_TMPDIR: /export/tmp
+  MINIO_PROMETHEUS_AUTH_TYPE: public
+# Make sure directories exist and are owned by uid:gid 1000:1000 before MinIO starts
+extraInitContainers:
+  - name: fix-perms
+    image: busybox:1.36
+    command:
+      - sh
+      - -c
+      - |
+        mkdir -p /export/tmp && chown -R 1000:1000 /export /export/tmp
+    volumeMounts:
+      - name: export
+        mountPath: /export
+# Also set security context so the container runs as 1000
+podSecurityContext:
+  runAsUser: 1000
+  runAsGroup: 1000
+  fsGroup: 1000
+  fsGroupChangePolicy: "OnRootMismatch"
+resources:
+  requests:
+    cpu: 100m
+    memory: 512Mi

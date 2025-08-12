@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: presto-consumer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: presto-consumer
+  template:
+    metadata:
+      labels:
+        app: presto-consumer
+    spec:
+      containers:
+      - name: consumer
+        image: presto-consumer:latest
+        imagePullPolicy: Never
+        env:
+        - name: KAFKA_BROKER
+          value: kafka.kafka.svc.cluster.local:9092
+        - name: PRESTO_HOST
+          value: presto.presto.svc.cluster.local
