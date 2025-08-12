@@ -44,6 +44,15 @@ The pipeline fetches live flight data, writes it to Kafka, persists it in Iceber
 
 ---
 
+## :globe_with_meridians: API Endpoint
+This project fetches real-time flight data from the OpenSky Network API:
+REST API Endpoint:  
+https://opensky-network.org/api/states/all  
+This API provides live state vectors for all aircraft within OpenSky’s coverage.
+For details on API parameters and usage, refer to their [API Documentation](https://openskynetwork.github.io/opensky-api/index.html).
+
+---
+
 ## :bar_chart: Example Visualizations
 #### Flight Density Map
 Shows high-density regions of flights on a map.
@@ -62,3 +71,8 @@ All services run inside Minikube except Superset, run locally.
 MinIO uses persistent volumes to store Iceberg table data.
 Presto queries Iceberg tables directly via the MinIO S3 endpoint.
 Superset connects to Presto to visualize aggregated results.
+
+---
+## :scroll: Credits
+This project uses real-time data provided by the OpenSky Network.  
+The OpenSky Network is a non-profit association providing open access to ADS-B and Mode S data for research and non-commercial use.
